@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(247, 247, 247);
+}
+
+.flex-container{
+    min-height: 99vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: antiquewhite;
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+    height:450px;
+}
+
+fieldset{
+    border: none;
+}
+
+button{
+    border-radius: 6px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Password Generator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='main.css') }}">
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="card text-right" id="box">
+            <h1>Password Generator</h1>
+            <form action='{{ url_for("home") }}' method="post">
+                <fieldset>
+                    <p>
+                        <label>Length of the Password : </label>
+                        <input type="number" id="length" name="pass_len" min="8" required="required">
+                    </p>
+                    <h3>Password must contain</h3>
+
+                    <p>
+                        <label>Lower case letter</label>
+                        <input type="radio" id="lowCase_yes" name="lowCase_choice" value="Y" checked>
+                        <label for="lowCase_yes">Yes</label>
+                        <input type="radio" id="lowCase_no" name="lowCase_choice" value="N">
+                        <label for="lowCase_no">No</label>
+                    </p>
+                    <p>
+                        <label>Upper case letter</label>
+                        <input type="radio" id="upCase_yes" name="upCase_choice" value="Y" checked>
+                        <label for="lowCase_yes">Yes</label>
+                        <input type="radio" id="upCase_no" name="upCase_choice" value="N">
+                        <label for="lowCase_no">No</label>
+                    </p>
+                    <p>
+                        <label>Number</label>
+                        <input type="radio" id="numbers_yes" name="numbers_choice" value="Y" checked>
+                        <label for="lowCase_yes">Yes</label>
+                        <input type="radio" id="numbers_no" name="numbers_choice" value="N">
+                        <label for="lowCase_no">No</label>
+                    </p>
+                    <p>
+                        <label>Special character</label>
+                        <input type="radio" id="specialChar_yes" name="specialChar_choice" value="Y" checked>
+                        <label for="lowCase_yes">Yes</label>
+                        <input type="radio" id="specialChar_no" name="specialChar_choice" value="N">
+                        <label for="lowCase_no">No</label>
+                    </p>
+                    <button type="submit">Generate</button>
+                
+                    {% if password %}
+                        {% if password != 'None'%}
+                            <h3>Your password is</h3>
+                            <p>{{ password }}</p>
+                        {% else %}
+                            <script>alert('Please select atleast 1 out of 4 parameters')</script>
+                        {% endif %}
+                    {% endif %}
+                </fieldset>
+                <!-- {% block content %}
+                
+                {% endblock content %} -->
+                
+                
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
